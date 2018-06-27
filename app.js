@@ -25,8 +25,9 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 d3.csv("PreviousAttacks_Rev.csv", function(error, testdata) {
     if (error) return console.warn(error);
-  
+
     console.log(testdata);
+    console.log(testdata[0]);
 
     var circleMarkers = []
 
@@ -37,10 +38,10 @@ d3.csv("PreviousAttacks_Rev.csv", function(error, testdata) {
             casualties: testdata[i].casualties,
             date: testdata[i].date
         }
-        
+
         if(!isNaN(currentLocation.latlong[1])){
             L.circle(currentLocation.latlong, 100000, {
-                radius:500, 
+                radius:500,
                 fillColor:"red",
                 opacity: 1,
                 color: "black"
